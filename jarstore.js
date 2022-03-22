@@ -4,32 +4,19 @@ const axios = require("axios");
 const fs = require("fs");
 const pretty = require('pretty')
 
-const url1 = "https://www.deviantart.com/nixeu/art/T-I-F-A-860196687";
+// const url1 = "https://www.deviantart.com/nixeu/art/T-I-F-A-860196687";
 cook = 'auth=__7d64de1cf2cff4ff68d8%3B%22464b1e95781f55acbc2259969460c876%22; auth_secure=__e59b4910108dc70dfd04%3B%2264fb526c5395128698f3ebd7d0ab9762%22; userinfo=__788613dd65dc5c285392%3B%7B%22username%22%3A%22royalzeroo%22%2C%22uniqueid%22%3A%22f6ddd58959f5ad5729a1b02c5e7fe430%22%2C%22dvs9-1%22%3A1%2C%22ab%22%3A%22tao-upt-1-a-7%7Ctao-nnc-1-a-3%7Ctao-ST3-1-a-5%7Ctao-TS1-1-b-10%7Ctao-SS1-1-b-6%22%7D; vd=__ee6ada408a8a52ecebed%3B%22BiOVuI%2CBiOVuI%2CA%2CI%2CA%2C%2CB%2CA%2CB%2CBiOVuI%2CBiOWNV%2CA%2CA%2CA%2CA%2C13%2CA%2CB%2CA%2CA%2CA%2CA%2CB%2CA%2CA%2C%22; td=6:824x324%3B12:364x485';
 const cookieJar = request.jar();
 request = request.defaults({ jar: cookieJar });
 
 async function main() {
 
-
-    // const  loginResult =await request.post(
-    //     "https://www.deviantart.com/users/login",
-    //     {
-    //         form:{
-    //             username: "royalzeroo",
-    //             password: "Deviantart!268724",
-    //         }
-    //     }
-    // );
-
-    // console.log(cookieJar.getCookieString("https://www.deviantart.com/nixeu/art/The-Call-Taliyah-905900996"));
-    // const matches =await request.get("https://www.deviantart.com/nixeu/art/C-A-L-M-884999665");
-
-
-
+    var i = 0;
+    for (i = 0; i < 16; i++) {
+        genurl = (`https://www.deviantart.com/nixeu/gallery/all?page=${i}`);
+    }
     request.get({
-        url: "https://www.deviantart.com/nixeu/art/The-Call-Taliyah-905900996",
-        // url: "https://www.google.com",
+        url: genurl,
         headers: {
             // 'authority': 'www.deviantart.com',
             // 'method': 'GET',
@@ -66,7 +53,7 @@ async function main() {
 
             }
         });
-        // console.dir(list);
+
         var lgth = 0;
         var longest;
         console.log(list.length);
